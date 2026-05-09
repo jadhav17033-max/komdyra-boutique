@@ -14,23 +14,19 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     
     <style>
-        :root { --gold: #e3c08d; --pink: #fbcfe8; --bg-dark: #070707; }
+        :root { --gold: #e3c08d; --pink: #fbcfe8; --bg-dark: #070707; --card-bg: #111111; }
         body { font-family: 'Montserrat', sans-serif; background-color: var(--bg-dark); color: #fff; overflow-x: hidden; padding-bottom: 70px; }
         .font-luxe { font-family: 'Cinzel', serif; }
         
         /* Flashing Install Button */
-        @keyframes pulse-gold { 
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(227, 192, 141, 0.7); } 
-            70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(227, 192, 141, 0); } 
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(227, 192, 141, 0); } 
-        }
-        .btn-install-fixed { animation: pulse-gold 2s infinite; background: var(--gold); color: #000; font-weight: 800; border-radius: 4px; }
+        @keyframes pulse-gold { 0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(227, 192, 141, 0.7); } 70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(227, 192, 141, 0); } 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(227, 192, 141, 0); } }
+        .btn-install-pop { animation: pulse-gold 2s infinite; background: var(--gold); color: #000; font-weight: 800; border-radius: 4px; }
 
         .reveal { opacity: 0; transform: translateY(30px); transition: 1s cubic-bezier(0.17, 0.67, 0.83, 0.67); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        .product-card { background: #111; border: 1px solid rgba(255,255,255,0.05); transition: 0.4s; border-radius: 15px; overflow: hidden; }
-        .btn-buy-now { background: linear-gradient(90deg, #e3c08d, #fbcfe8); color: black; font-weight: 900; letter-spacing: 1px; transition: 0.4s; text-transform: uppercase; }
+        .product-card { background: var(--card-bg); border: 1px solid rgba(255,255,255,0.05); transition: 0.4s; border-radius: 15px; overflow: hidden; }
+        .btn-buy { background: linear-gradient(90deg, #e3c08d, #fbcfe8); color: black; font-weight: 900; letter-spacing: 1px; transition: 0.4s; text-transform: uppercase; }
 
         .sticky-bar { position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(7, 7, 7, 0.95); backdrop-filter: blur(10px); border-top: 1px solid var(--gold); padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; z-index: 2500; }
         .wa-float { position: fixed; bottom: 85px; right: 20px; background: #25d366; color: white; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; z-index: 2000; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
@@ -40,123 +36,120 @@
 
     <a href="https://wa.me/919529766940" class="wa-float shadow-lg"><i class="fab fa-whatsapp"></i></a>
 
-    <nav class="sticky top-0 z-[3000] bg-black/90 border-b border-white/5 py-3 px-4 flex justify-between items-center">
-        <div class="flex flex-col">
-            <h1 class="text-xl font-luxe tracking-[4px] text-pink-200 uppercase">Komdyra</h1>
-            <p class="text-[6px] tracking-[3px] text-gray-500 uppercase">By Komal Gunjal</p>
-        </div>
-        <div class="flex items-center gap-3">
-            <button id="install-btn-manual" class="btn-install-fixed px-3 py-1.5 text-[8px] uppercase tracking-tighter">Install App</button>
-            <a href="#collection" class="text-[9px] font-bold text-gray-400 uppercase tracking-widest border-l border-white/10 pl-3">Catalog</a>
+    <nav class="sticky top-0 z-[3000] bg-black/90 backdrop-blur-md border-b border-white/5 py-4 px-6 flex justify-between items-center">
+        <h1 class="text-2xl font-luxe tracking-[8px] text-pink-200 uppercase">Komdyra</h1>
+        <div class="flex items-center gap-4">
+            <button id="install-btn-manual" class="btn-install-pop px-3 py-1.5 text-[8px] uppercase">Install App</button>
+            <a href="#collection" class="text-[11px] font-semibold tracking-widest uppercase py-2">Catalog</a>
         </div>
     </nav>
 
-    <div class="bg-pink-200 text-black text-[8px] font-bold py-1.5 text-center tracking-[3px] uppercase">
+    <div class="bg-pink-200 text-black text-[9px] font-bold py-2 text-center tracking-[3px] uppercase">
         Special Launch Offer: Code KOMDYRA10
     </div>
 
-    <section class="relative h-[50vh] flex items-center justify-center text-center px-6 overflow-hidden">
+    <section class="relative h-[65vh] flex items-center justify-center text-center px-6 overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img src="images/traditional.jpg" class="w-full h-full object-cover opacity-40">
+            <img src="images/traditional.jpg" class="w-full h-full object-cover opacity-30 grayscale-[30%]">
         </div>
         <div class="relative z-10">
-            <h2 class="text-5xl font-luxe mb-4 reveal leading-none">Pure <span class="italic text-pink-200">Luxe</span></h2>
-            <a href="#collection" class="btn-buy-now px-8 py-3 rounded-full text-[10px] inline-block mt-2 reveal">Shop Now</a>
+            <span class="text-gold tracking-[8px] uppercase text-[10px] mb-4 block reveal">The 2026 Collection</span>
+            <h2 class="text-6xl md:text-8xl font-luxe mb-6 reveal leading-tight">Pure <span class="italic text-pink-200">Elegance</span></h2>
+            <a href="#collection" class="btn-buy px-10 py-4 rounded-full text-xs uppercase inline-block mt-4 reveal">Shop Collection</a>
         </div>
     </section>
 
-    <section id="collection" class="max-w-7xl mx-auto px-6 py-16">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+    <section id="collection" class="max-w-7xl mx-auto px-6 py-20">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
             
             <div class="reveal product-card flex flex-col">
                 <img src="images/traditional.jpg" onerror="this.src='https://via.placeholder.com/600x800'" class="w-full aspect-[4/5] object-cover">
-                <div class="p-6">
-                    <h4 class="font-luxe text-lg tracking-widest uppercase mb-1">Peacock One-Piece</h4>
-                    <p class="text-gold text-xl font-bold mb-6">₹599</p>
-                    <a href="https://wa.me/919529766940?text=I want to BUY: Peacock One-Piece" class="btn-buy-now w-full block py-4 text-center rounded-xl text-[11px]">Buy Now</a>
+                <div class="p-8">
+                    <h4 class="font-luxe text-xl mb-2 tracking-widest uppercase">Peacock Piece</h4>
+                    <p class="text-2xl font-bold text-pink-100 mb-6">₹599</p>
+                    <a href="https://wa.me/919529766940?text=I want to BUY: Peacock One-Piece" class="btn-buy w-full py-4 text-center rounded-xl text-[11px] block">Buy Now</a>
                 </div>
             </div>
 
             <div class="reveal product-card flex flex-col">
                 <img src="images/dupatta.jpg" onerror="this.src='https://via.placeholder.com/600x800'" class="w-full aspect-[4/5] object-cover">
-                <div class="p-6">
-                    <h4 class="font-luxe text-lg tracking-widest uppercase mb-1">Royal Dupatta</h4>
-                    <p class="text-gold text-2xl font-bold mb-6">₹1099</p>
-                    <a href="https://wa.me/919529766940?text=I want to BUY: Royal Dupatta" class="btn-buy-now w-full block py-4 text-center rounded-xl text-[11px]">Buy Now</a>
+                <div class="p-8">
+                    <h4 class="font-luxe text-xl mb-2 tracking-widest uppercase">Royal Dupatta</h4>
+                    <p class="text-2xl font-bold text-pink-100 mb-6">₹1099</p>
+                    <a href="https://wa.me/919529766940?text=I want to BUY: Royal Dupatta" class="btn-buy w-full py-4 text-center rounded-xl text-[11px] block">Buy Now</a>
                 </div>
             </div>
 
             <div class="reveal product-card flex flex-col">
                 <img src="images/kurti.jpg" onerror="this.src='https://via.placeholder.com/600x800'" class="w-full aspect-[4/5] object-cover">
-                <div class="p-6">
-                    <h4 class="font-luxe text-lg tracking-widest uppercase mb-1">Designer Kurti</h4>
-                    <p class="text-gold text-xl font-bold mb-6">₹599</p>
-                    <a href="https://wa.me/919529766940?text=I want to BUY: Designer Kurti" class="btn-buy-now w-full block py-4 text-center rounded-xl text-[11px]">Buy Now</a>
+                <div class="p-8">
+                    <h4 class="font-luxe text-xl mb-2 tracking-widest uppercase">Designer Kurti</h4>
+                    <p class="text-2xl font-bold text-pink-100 mb-6">₹599</p>
+                    <a href="https://wa.me/919529766940?text=I want to BUY: Designer Kurti" class="btn-buy w-full py-4 text-center rounded-xl text-[11px] block">Buy Now</a>
                 </div>
             </div>
 
             <div class="reveal product-card flex flex-col">
                 <img src="images/ruffle.jpg" onerror="this.src='https://via.placeholder.com/600x800'" class="w-full aspect-[4/5] object-cover">
-                <div class="p-6">
-                    <h4 class="font-luxe text-lg tracking-widest uppercase mb-1">Ruffle Skirt</h4>
-                    <p class="text-gold text-xl font-bold mb-6">₹399</p>
-                    <a href="https://wa.me/919529766940?text=I want to BUY: Ruffle Skirt" class="btn-buy-now w-full block py-4 text-center rounded-xl text-[11px]">Buy Now</a>
+                <div class="p-8">
+                    <h4 class="font-luxe text-xl mb-2 tracking-widest uppercase">Ruffle Skirt</h4>
+                    <p class="text-2xl font-bold text-pink-100 mb-6">₹399</p>
+                    <a href="https://wa.me/919529766940?text=I want to BUY: Ruffle Skirt" class="btn-buy w-full py-4 text-center rounded-xl text-[11px] block">Buy Now</a>
                 </div>
             </div>
 
             <div class="reveal product-card flex flex-col">
                 <img src="images/scrunchies.jpg" onerror="this.src='https://via.placeholder.com/600x800'" class="w-full aspect-[4/5] object-cover">
-                <div class="p-6">
-                    <h4 class="font-luxe text-lg tracking-widest uppercase mb-1">Silk Scrunchies</h4>
-                    <p class="text-gold text-xl font-bold mb-6">₹50</p>
-                    <a href="https://wa.me/919529766940?text=I want to BUY: Silk Scrunchies" class="btn-buy-now w-full block py-4 text-center rounded-xl text-[11px]">Buy Now</a>
+                <div class="p-8">
+                    <h4 class="font-luxe text-xl mb-2 tracking-widest uppercase">Silk Scrunchies</h4>
+                    <p class="text-2xl font-bold text-pink-100 mb-6">₹50</p>
+                    <a href="https://wa.me/919529766940?text=I want to BUY: Silk Scrunchies" class="btn-buy w-full py-4 text-center rounded-xl text-[11px] block">Buy Now</a>
                 </div>
             </div>
-
         </div>
     </section>
 
     <section class="bg-[#0c0c0c] py-20 text-center">
-        <h3 class="font-luxe text-xl tracking-[10px] uppercase mb-12 text-pink-200">Customer Love</h3>
+        <h3 class="font-luxe text-2xl tracking-[10px] uppercase mb-12 text-pink-200">Reviews</h3>
         <div class="swiper reviewSwiper pb-10">
             <div class="swiper-wrapper italic font-accent text-lg">
-                <div class="swiper-slide px-12">"Stunning fitting! Best boutique ever."<br><span class="text-gold text-[9px] uppercase block mt-4">- Divya</span></div>
-                <div class="swiper-slide px-12">"Excellent quality dupatta. Beautiful embroidery."<br><span class="text-gold text-[9px] uppercase block mt-4">- Rani</span></div>
-                <div class="swiper-slide px-12">"Professional quality and fast delivery."<br><span class="text-gold text-[9px] uppercase block mt-4">- Kajal</span></div>
-                <div class="swiper-slide px-12">"Scrunchies are so soft. Professional service."<br><span class="text-gold text-[9px] uppercase block mt-4">- Vedika</span></div>
+                <div class="swiper-slide px-12">"Stunning fitting! Best boutique ever."<br><span class="text-gold text-[10px] uppercase block mt-4">- Divya</span></div>
+                <div class="swiper-slide px-12">"Excellent quality dupatta."<br><span class="text-gold text-[10px] uppercase block mt-4">- Rani</span></div>
+                <div class="swiper-slide px-12">"Designer pieces are unique. Loved it!"<br><span class="text-gold text-[10px] uppercase block mt-4">- Kajal</span></div>
+                <div class="swiper-slide px-12">"Highly professional service."<br><span class="text-gold text-[10px] uppercase block mt-4">- Vedika</span></div>
             </div>
             <div class="swiper-pagination"></div>
         </div>
     </section>
 
     <div class="sticky-bar">
-        <p class="text-[9px] font-bold text-pink-200 uppercase tracking-[3px]">Shop New 2026 Collection</p>
+        <p class="text-[9px] font-bold text-pink-200 uppercase tracking-[3px]">New Collection Available</p>
         <a href="#collection" class="bg-gold text-black px-5 py-2 rounded text-[9px] font-bold uppercase">Shop Now</a>
     </div>
 
-    <footer class="py-12 text-center opacity-30">
+    <footer class="py-16 text-center opacity-30">
         <h1 class="text-xl font-luxe tracking-[15px] uppercase">Komdyra</h1>
-        <p class="text-[8px] tracking-[5px] mt-2 uppercase">© 2026 Komal Gunjal</p>
+        <p class="text-[8px] tracking-[5px] mt-2 uppercase italic">By Komal Gunjal</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        new Swiper(".reviewSwiper", { loop: true, autoplay: { delay: 4000 }, pagination: { el: ".swiper-pagination", clickable: true } });
+        new Swiper(".reviewSwiper", { loop: true, autoplay: { delay: 4000 }, pagination: { el: ".swiper-pagination" } });
 
         let deferredPrompt;
-        const manualInstallBtn = document.getElementById('install-btn-manual');
+        const installBtn = document.getElementById('install-btn-manual');
 
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             deferredPrompt = e;
         });
 
-        manualInstallBtn.addEventListener('click', () => {
+        installBtn.addEventListener('click', () => {
             if (deferredPrompt) {
                 deferredPrompt.prompt();
                 deferredPrompt.userChoice.then(() => { deferredPrompt = null; });
             } else {
-                alert("App install karne ke liye browser menu mein 'Add to Home Screen' select karein!");
+                alert("Browser menu mein 'Add to Home Screen' select karein!");
             }
         });
 
