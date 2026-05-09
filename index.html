@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+            <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -18,13 +18,13 @@
         body { font-family: 'Montserrat', sans-serif; background-color: var(--bg-dark); color: #fff; overflow-x: hidden; padding-bottom: 60px; }
         .font-luxe { font-family: 'Cinzel', serif; }
         
-        /* FORCE SHOW INSTALL POPUP - Sabse upar dikhega */
+        /* FORCED INSTALL POPUP */
         #install-banner { 
-            display: flex !important; /* Force display */
+            display: flex !important;
             background: rgba(15, 15, 15, 0.98);
             backdrop-filter: blur(15px);
             border-bottom: 1px solid var(--gold);
-            box-shadow: 0 4px 20px rgba(227, 192, 141, 0.2);
+            box-shadow: 0 4px 20px rgba(227, 192, 141, 0.3);
         }
 
         @keyframes pulse-gold { 
@@ -37,24 +37,20 @@
         .reveal { opacity: 0; transform: translateY(30px); transition: 1s cubic-bezier(0.17, 0.67, 0.83, 0.67); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        .wa-float { position: fixed; bottom: 80px; right: 20px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.4); z-index: 2000; }
-        
-        .product-card { background: var(--card-bg); border: 1px solid rgba(255,255,255,0.05); transition: 0.4s; border-radius: 15px; overflow: hidden; }
-        .btn-buy { background: linear-gradient(90deg, #e3c08d, #fbcfe8); color: black; font-weight: 900; letter-spacing: 1px; transition: 0.4s; text-transform: uppercase; }
+        .product-card { background: var(--card-bg); border: 1px solid rgba(255,255,255,0.05); border-radius: 15px; overflow: hidden; height: 100%; display: flex; flex-direction: column; }
+        .btn-buy { background: linear-gradient(90deg, #e3c08d, #fbcfe8); color: black; font-weight: 900; text-transform: uppercase; transition: 0.4s; }
 
         .sticky-bar { position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(7, 7, 7, 0.95); backdrop-filter: blur(10px); border-top: 1px solid var(--gold); padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; z-index: 2500; }
     </style>
 </head>
 <body>
 
-    <a href="https://wa.me/919529766940" class="wa-float shadow-lg"><i class="fab fa-whatsapp"></i></a>
-
     <div id="install-banner" class="bg-neutral-900 p-4 flex justify-between items-center sticky top-0 z-[5000]">
         <div class="flex items-center gap-3">
-            <div class="w-10 h-10 bg-gold rounded flex items-center justify-center font-luxe text-black font-bold text-xl shadow-lg">K</div>
+            <div class="w-10 h-10 bg-gold rounded flex items-center justify-center font-luxe text-black font-bold text-xl">K</div>
             <div>
                 <p class="text-[10px] font-bold uppercase tracking-widest text-gold">KOMDYRA APP</p>
-                <p class="text-[8px] text-gray-400">Install for the full experience</p>
+                <p class="text-[8px] text-gray-400">Install to Shop our 2026 Collection</p>
             </div>
         </div>
         <div class="flex items-center gap-3">
@@ -63,40 +59,59 @@
         </div>
     </div>
 
-    <div class="bg-pink-200 text-black text-[9px] font-bold py-2 text-center tracking-[3px] uppercase">
-        Special Launch Offer: Code KOMDYRA10
-    </div>
-
     <nav class="sticky top-0 z-[1500] bg-black/90 backdrop-blur-md border-b border-white/5 py-4 px-6 flex justify-between items-center">
         <h1 class="text-2xl font-luxe tracking-[8px] text-pink-200 uppercase">Komdyra</h1>
-        <div class="flex gap-4">
-            <a href="#collection" class="text-[11px] font-semibold tracking-widest uppercase py-2">Catalog</a>
-        </div>
+        <a href="https://wa.me/919529766940" class="text-green-400 text-2xl"><i class="fab fa-whatsapp"></i></a>
     </nav>
 
-    <section class="relative h-[60vh] flex items-center justify-center text-center px-6 overflow-hidden">
-        <div class="absolute inset-0 z-0">
-            <img src="images/traditional.jpg" class="w-full h-full object-cover opacity-30 grayscale-[50%]">
-        </div>
-        <div class="relative z-10">
-            <span class="text-gold tracking-[8px] uppercase text-[10px] mb-4 block reveal">The 2026 Collection</span>
-            <h2 class="text-6xl md:text-8xl font-luxe mb-6 reveal leading-tight">Pure <span class="italic text-pink-200">Elegance</span></h2>
-            <a href="#collection" class="btn-buy px-10 py-4 rounded-full text-xs uppercase inline-block mt-4 reveal">Shop Collection</a>
-        </div>
-    </section>
-
-    <section id="collection" class="max-w-7xl mx-auto px-6 py-24">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 text-center">
-            <div class="reveal product-card flex flex-col">
-                <img src="images/traditional.jpg" class="w-full aspect-[4/5] object-cover">
-                <div class="p-8 flex-grow">
-                    <h4 class="font-luxe text-xl mb-2 tracking-widest uppercase">Peacock Piece</h4>
-                    <p class="text-2xl font-bold text-pink-100 mb-6">₹599</p>
-                    <a href="https://wa.me/919529766940?text=Order: Peacock One-Piece" class="btn-buy w-full py-4 text-center rounded-xl text-[11px] block">Buy Now</a>
+    <section id="collection" class="max-w-7xl mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            
+            <div class="reveal product-card">
+                <img src="images/traditional.jpg" onerror="this.src='https://via.placeholder.com/500x700'" class="w-full aspect-[4/5] object-cover">
+                <div class="p-6 flex-grow flex flex-col">
+                    <h4 class="font-luxe text-lg tracking-widest uppercase mb-1">Peacock One-Piece</h4>
+                    <p class="text-gold text-xl font-bold mb-6">₹599</p>
+                    <a href="https://wa.me/919529766940?text=Order: Peacock One-Piece" class="btn-buy w-full py-4 text-center rounded-xl text-[11px] mt-auto">Buy Now</a>
                 </div>
             </div>
-            <div class="reveal product-card flex flex-col"><img src="images/dupatta.jpg" class="w-full aspect-[4/5] object-cover"><div class="p-8"><h4 class="font-luxe text-xl mb-2 tracking-widest uppercase">Royal Dupatta</h4><p class="text-2xl font-bold text-pink-100 mb-6">₹1099</p><a href="https://wa.me/919529766940?text=Order: Royal Dupatta" class="btn-buy w-full py-4 text-center rounded-xl text-[11px] block">Buy Now</a></div></div>
-            <div class="reveal product-card flex flex-col"><img src="images/kurti.jpg" class="w-full aspect-[4/5] object-cover"><div class="p-8"><h4 class="font-luxe text-xl mb-2 tracking-widest uppercase">Designer Kurti</h4><p class="text-2xl font-bold text-pink-100 mb-6">₹599</p><a href="https://wa.me/919529766940?text=Order: Designer Kurti" class="btn-buy w-full py-4 text-center rounded-xl text-[11px] block">Buy Now</a></div></div>
+
+            <div class="reveal product-card" style="transition-delay: 0.1s;">
+                <img src="images/dupatta.jpg" onerror="this.src='https://via.placeholder.com/500x700'" class="w-full aspect-[4/5] object-cover">
+                <div class="p-6 flex-grow flex flex-col">
+                    <h4 class="font-luxe text-lg tracking-widest uppercase mb-1">Royal Dupatta</h4>
+                    <p class="text-gold text-xl font-bold mb-6">₹1099</p>
+                    <a href="https://wa.me/919529766940?text=Order: Royal Dupatta" class="btn-buy w-full py-4 text-center rounded-xl text-[11px] mt-auto">Buy Now</a>
+                </div>
+            </div>
+
+            <div class="reveal product-card" style="transition-delay: 0.2s;">
+                <img src="images/kurti.jpg" onerror="this.src='https://via.placeholder.com/500x700'" class="w-full aspect-[4/5] object-cover">
+                <div class="p-6 flex-grow flex flex-col">
+                    <h4 class="font-luxe text-lg tracking-widest uppercase mb-1">Designer Kurti</h4>
+                    <p class="text-gold text-xl font-bold mb-6">₹599</p>
+                    <a href="https://wa.me/919529766940?text=Order: Designer Kurti" class="btn-buy w-full py-4 text-center rounded-xl text-[11px] mt-auto">Buy Now</a>
+                </div>
+            </div>
+
+            <div class="reveal product-card">
+                <img src="images/ruffle.jpg" onerror="this.src='https://via.placeholder.com/500x700'" class="w-full aspect-[4/5] object-cover">
+                <div class="p-6 flex-grow flex flex-col">
+                    <h4 class="font-luxe text-lg tracking-widest uppercase mb-1">Ruffle Skirt</h4>
+                    <p class="text-gold text-xl font-bold mb-6">₹399</p>
+                    <a href="https://wa.me/919529766940?text=Order: Ruffle Skirt" class="btn-buy w-full py-4 text-center rounded-xl text-[11px] mt-auto">Buy Now</a>
+                </div>
+            </div>
+
+            <div class="reveal product-card" style="transition-delay: 0.1s;">
+                <img src="images/scrunchies.jpg" onerror="this.src='https://via.placeholder.com/500x700'" class="w-full aspect-[4/5] object-cover">
+                <div class="p-6 flex-grow flex flex-col">
+                    <h4 class="font-luxe text-lg tracking-widest uppercase mb-1">Silk Scrunchies</h4>
+                    <p class="text-gold text-xl font-bold mb-6">₹50</p>
+                    <a href="https://wa.me/919529766940?text=Order: Silk Scrunchies" class="btn-buy w-full py-4 text-center rounded-xl text-[11px] mt-auto">Buy Now</a>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -129,11 +144,7 @@
 
         let deferredPrompt;
         const installBtn = document.getElementById('install-btn');
-
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
-        });
+        window.addEventListener('beforeinstallprompt', (e) => { e.preventDefault(); deferredPrompt = e; });
 
         installBtn.addEventListener('click', () => {
             if (deferredPrompt) {
