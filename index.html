@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+        <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,143 +7,149 @@
     
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#fbcfe8">
-    <link rel="apple-touch-icon" href="images/traditional.jpg">
-
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@100;300;400;600&family=Playfair+Display:italic,wght@400;700&display=swap" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     
     <style>
         :root { --gold: #e3c08d; --pink: #fbcfe8; --bg-dark: #070707; }
-        body { font-family: 'Montserrat', sans-serif; background-color: var(--bg-dark); color: #fff; overflow-x: hidden; padding-bottom: 70px; }
+        body { font-family: 'Montserrat', sans-serif; background-color: var(--bg-dark); color: #fff; margin: 0; padding-bottom: 80px; }
         .font-luxe { font-family: 'Cinzel', serif; }
-        .font-accent { font-family: 'Playfair Display', serif; }
 
-        /* Flashing Install Button */
+        /* Flashing Install Prompt */
         @keyframes pulse-gold { 
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(227, 192, 141, 0.7); } 
-            70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(227, 192, 141, 0); } 
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(227, 192, 141, 0); } 
+            0% { box-shadow: 0 0 0 0 rgba(227, 192, 141, 0.7); } 
+            70% { box-shadow: 0 0 0 10px rgba(227, 192, 141, 0); } 
+            100% { box-shadow: 0 0 0 0 rgba(227, 192, 141, 0); } 
         }
-        .btn-install-pop { animation: pulse-gold 2s infinite; background: var(--gold); color: #000; font-weight: 800; border-radius: 4px; }
+        .btn-install { animation: pulse-gold 2s infinite; background: var(--gold); color: #000; font-weight: bold; border-radius: 4px; padding: 6px 12px; font-size: 10px; }
 
-        /* Premium Buy Now Button */
-        .btn-buy-now { 
-            background: linear-gradient(90deg, #e3c08d, #fbcfe8); 
-            color: black; font-weight: 900; text-transform: uppercase; 
-            letter-spacing: 2px; transition: 0.3s; border-radius: 8px;
-        }
-        .btn-buy-now:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(251, 207, 232, 0.3); }
+        .product-card { background: #111; border: 1px solid rgba(227, 192, 141, 0.1); border-radius: 15px; overflow: hidden; margin-bottom: 20px; }
+        .btn-buy-now { background: linear-gradient(90deg, #e3c08d, #fbcfe8); color: black; font-weight: 800; text-transform: uppercase; width: 100%; display: block; text-align: center; padding: 15px 0; border-radius: 10px; font-size: 12px; }
 
-        /* Sticky Bottom Bar */
-        .sticky-buy-bar {
-            position: fixed; bottom: 0; left: 0; width: 100%; 
-            background: rgba(7, 7, 7, 0.95); backdrop-filter: blur(10px);
-            border-top: 1px solid var(--gold); padding: 12px 20px;
-            display: flex; justify-content: space-between; align-items: center; z-index: 2000;
-        }
-
-        .text-gradient {
-            background: linear-gradient(90deg, var(--gold), var(--pink), var(--gold));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            background-size: 200% auto; animation: shine 5s linear infinite;
-        }
-        @keyframes shine { to { background-position: 200% center; } }
-
-        .reveal { opacity: 0; transform: translateY(30px); transition: 1s ease-out; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+        /* Sticky Bottom Shop Bar */
+        .sticky-bar { position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(10,10,10,0.95); border-top: 1px solid var(--gold); padding: 15px; display: flex; justify-content: space-between; align-items: center; z-index: 2000; }
         
-        .product-card { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(227, 192, 141, 0.1); border-radius: 12px; overflow: hidden; }
+        .text-pink-glow { color: var(--pink); text-shadow: 0 0 5px rgba(251, 207, 232, 0.3); }
     </style>
 </head>
 <body>
 
-    <div id="install-banner" class="hidden bg-neutral-900/90 backdrop-blur-md border-b border-gold/30 p-3 flex justify-between items-center sticky top-0 z-[2500]">
-        <div class="flex items-center gap-3 pl-2">
-            <div class="w-8 h-8 bg-gold rounded flex items-center justify-center font-luxe text-black font-bold">K</div>
-            <p class="text-[9px] font-bold uppercase tracking-widest text-pink-100">Install KOMDYRA App</p>
+    <div id="install-banner" class="hidden bg-neutral-900 p-3 flex justify-between items-center sticky top-0 z-[2500] border-b border-gold/20">
+        <div class="flex items-center gap-2">
+            <div class="bg-gold text-black font-bold px-2 py-1 rounded text-xs">K</div>
+            <span class="text-[10px] uppercase font-bold tracking-widest">Install KOMDYRA App</span>
         </div>
-        <button id="install-btn" class="btn-install-pop px-4 py-2 text-[8px] uppercase">Install</button>
+        <button id="install-btn" class="btn-install uppercase">Install</button>
     </div>
 
-    <nav class="p-5 flex justify-between items-center bg-black/50 backdrop-blur-lg border-b border-white/5">
-        <div class="flex flex-col">
-            <h1 class="text-xl font-luxe tracking-[6px] text-gradient uppercase">Komdyra</h1>
-            <p class="text-[7px] tracking-[4px] text-pink-200/50 uppercase">By Komal Gunjal</p>
+    <nav class="p-5 flex justify-between items-center border-b border-white/5">
+        <div>
+            <h1 class="text-xl font-luxe tracking-[4px] text-pink-glow uppercase">Komdyra</h1>
+            <p class="text-[7px] tracking-[3px] opacity-50 uppercase">By Komal Gunjal</p>
         </div>
-        <div class="flex gap-4 items-center">
-            <a href="https://wa.me/919529766940" class="text-pink-200 text-lg"><i class="fab fa-whatsapp"></i></a>
-            <a href="#" class="text-pink-200 text-lg"><i class="fab fa-instagram"></i></a>
+        <div class="flex gap-4 text-pink-200">
+            <a href="https://wa.me/919529766940"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
         </div>
     </nav>
 
-    <section id="collection" class="max-w-7xl mx-auto px-6 py-16">
-        <h3 class="text-center font-luxe text-2xl mb-16 tracking-[10px] uppercase">Selected <span class="text-pink-200">Collection</span></h3>
+    <section class="max-w-7xl mx-auto px-5 py-10">
+        <h2 class="text-center font-luxe text-2xl tracking-[8px] uppercase mb-10 text-pink-200">Selected Collection</h2>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             
-            <div class="reveal product-card group">
-                <div class="relative overflow-hidden aspect-[3/4]">
-                    <img src="images/traditional.jpg" onerror="this.src='https://via.placeholder.com/500x700'" class="w-full h-full object-cover transition duration-1000 group-hover:scale-110">
-                </div>
-                <div class="p-6">
-                    <h4 class="text-sm font-luxe tracking-widest uppercase mb-2">Peacock One-Piece</h4>
-                    <p class="text-gold text-xl font-luxe mb-6">₹599</p>
-                    <a href="https://wa.me/919529766940?text=Order: Peacock One-Piece" class="btn-buy-now w-full block py-4 text-center text-[10px]">Buy Now</a>
+            <div class="product-card">
+                <img src="images/traditional.jpg" onerror="this.src='https://via.placeholder.com/500x650?text=Peacock+Piece'" class="w-full aspect-[4/5] object-cover">
+                <div class="p-5">
+                    <h4 class="font-luxe tracking-widest text-sm mb-1 uppercase">Peacock One-Piece</h4>
+                    <p class="text-gold text-xl font-bold mb-5">₹599</p>
+                    <a href="https://wa.me/919529766940?text=I want to buy Peacock One-Piece" class="btn-buy-now">Buy Now</a>
                 </div>
             </div>
 
-            <div class="reveal product-card group">
-                <div class="relative overflow-hidden aspect-[3/4]">
-                    <img src="images/dupatta.jpg" onerror="this.src='https://via.placeholder.com/500x700'" class="w-full h-full object-cover transition duration-1000 group-hover:scale-110">
-                </div>
-                <div class="p-6">
-                    <h4 class="text-sm font-luxe tracking-widest uppercase mb-2">Embroidery Dupatta</h4>
-                    <p class="text-gold text-xl font-luxe mb-6">₹1099</p>
-                    <a href="https://wa.me/919529766940?text=Order: Embroidery Dupatta" class="btn-buy-now w-full block py-4 text-center text-[10px]">Buy Now</a>
+            <div class="product-card">
+                <img src="images/dupatta.jpg" onerror="this.src='https://via.placeholder.com/500x650?text=Embroidery+Dupatta'" class="w-full aspect-[4/5] object-cover">
+                <div class="p-5">
+                    <h4 class="font-luxe tracking-widest text-sm mb-1 uppercase">Embroidery Dupatta</h4>
+                    <p class="text-gold text-xl font-bold mb-5">₹1099</p>
+                    <a href="https://wa.me/919529766940?text=I want to buy Embroidery Dupatta" class="btn-buy-now">Buy Now</a>
                 </div>
             </div>
 
-            <div class="reveal product-card group">
-                <div class="relative overflow-hidden aspect-[3/4]">
-                    <img src="images/kurti.jpg" onerror="this.src='https://via.placeholder.com/500x700'" class="w-full h-full object-cover transition duration-1000 group-hover:scale-110">
-                </div>
-                <div class="p-6">
-                    <h4 class="text-sm font-luxe tracking-widest uppercase mb-2">Designer Kurti</h4>
-                    <p class="text-gold text-xl font-luxe mb-6">₹599</p>
-                    <a href="https://wa.me/919529766940?text=Order: Designer Kurti" class="btn-buy-now w-full block py-4 text-center text-[10px]">Buy Now</a>
+            <div class="product-card">
+                <img src="images/kurti.jpg" onerror="this.src='https://via.placeholder.com/500x650?text=Designer+Kurti'" class="w-full aspect-[4/5] object-cover">
+                <div class="p-5">
+                    <h4 class="font-luxe tracking-widest text-sm mb-1 uppercase">Designer Kurti</h4>
+                    <p class="text-gold text-xl font-bold mb-5">₹599</p>
+                    <a href="https://wa.me/919529766940?text=I want to buy Designer Kurti" class="btn-buy-now">Buy Now</a>
                 </div>
             </div>
 
-            <div class="reveal product-card group">
-                <div class="relative overflow-hidden aspect-[3/4]">
-                    <img src="images/ruffle.jpg" onerror="this.src='https://via.placeholder.com/500x700'" class="w-full h-full object-cover transition duration-1000 group-hover:scale-110">
-                </div>
-                <div class="p-6">
-                    <h4 class="text-sm font-luxe tracking-widest uppercase mb-2">Ruffle Skirt</h4>
-                    <p class="text-gold text-xl font-luxe mb-6">₹399</p>
-                    <a href="https://wa.me/919529766940?text=Order: Ruffle Skirt" class="btn-buy-now w-full block py-4 text-center text-[10px]">Buy Now</a>
+            <div class="product-card">
+                <img src="images/ruffle.jpg" onerror="this.src='https://via.placeholder.com/500x650?text=Ruffle+Skirt'" class="w-full aspect-[4/5] object-cover">
+                <div class="p-5">
+                    <h4 class="font-luxe tracking-widest text-sm mb-1 uppercase">Ruffle Skirt</h4>
+                    <p class="text-gold text-xl font-bold mb-5">₹399</p>
+                    <a href="https://wa.me/919529766940?text=I want to buy Ruffle Skirt" class="btn-buy-now">Buy Now</a>
                 </div>
             </div>
 
-            <div class="reveal product-card group">
-                <div class="relative overflow-hidden aspect-[3/4]">
-                    <img src="images/scrunchies.jpg" onerror="this.src='https://via.placeholder.com/500x700'" class="w-full h-full object-cover transition duration-1000 group-hover:scale-110">
-                </div>
-                <div class="p-6">
-                    <h4 class="text-sm font-luxe tracking-widest uppercase mb-2">Silk Scrunchies</h4>
-                    <p class="text-gold text-xl font-luxe mb-6">₹50</p>
-                    <a href="https://wa.me/919529766940?text=Order: Silk Scrunchies" class="btn-buy-now w-full block py-4 text-center text-[10px]">Buy Now</a>
+            <div class="product-card">
+                <img src="images/scrunchies.jpg" onerror="this.src='https://via.placeholder.com/500x650?text=Silk+Scrunchies'" class="w-full aspect-[4/5] object-cover">
+                <div class="p-5">
+                    <h4 class="font-luxe tracking-widest text-sm mb-1 uppercase">Silk Scrunchies</h4>
+                    <p class="text-gold text-xl font-bold mb-5">₹50</p>
+                    <a href="https://wa.me/919529766940?text=I want to buy Silk Scrunchies" class="btn-buy-now">Buy Now</a>
                 </div>
             </div>
-
         </div>
     </section>
 
-    <section class="py-20 bg-[#0c0c0c] border-y border-white/5">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <h3 class="font-luxe text-xl tracking-[10px] uppercase mb-12 text-pink-200">Customer Love</h3>
-            <div class="swiper reviewSwiper pb-10">
-                <div class
-                    
+    <section class="py-16 bg-[#0c0c0c]">
+        <h3 class="text-center font-luxe text-pink-200 tracking-[5px] uppercase mb-10">Reviews</h3>
+        <div class="swiper reviewSwiper max-w-lg mx-auto text-center px-10">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide italic text-gray-400">"Amazing fitting and fabric!"<br><span class="text-gold text-[10px] mt-2 block">- DIVYA</span></div>
+                <div class="swiper-slide italic text-gray-400">"Best boutique collection."<br><span class="text-gold text-[10px] mt-2 block">- RANI</span></div>
+                <div class="swiper-slide italic text-gray-400">"Professional quality."<br><span class="text-gold text-[10px] mt-2 block">- KAJAL</span></div>
+                <div class="swiper-slide italic text-gray-400">"Loved the design!"<br><span class="text-gold text-[10px] mt-2 block">- VEDIKA</span></div>
+            </div>
+            <div class="swiper-pagination mt-5"></div>
+        </div>
+    </section>
+
+    <div class="sticky-bar">
+        <div>
+            <p class="text-[10px] font-bold text-pink-200 uppercase tracking-widest">New Collection</p>
+            <p class="text-[8px] opacity-50 uppercase">Order on WhatsApp</p>
+        </div>
+        <a href="https://wa.me/919529766940" class="bg-gold text-black px-5 py-2 rounded text-[10px] font-bold uppercase">Shop Now</a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        new Swiper(".reviewSwiper", { loop: true, autoplay: { delay: 3000 }, pagination: { el: ".swiper-pagination" } });
+
+        let deferredPrompt;
+        const installBanner = document.getElementById('install-banner');
+        const installBtn = document.getElementById('install-btn');
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            installBanner.classList.remove('hidden');
+        });
+
+        installBtn.addEventListener('click', () => {
+            installBanner.classList.add('hidden');
+            deferredPrompt.prompt();
+            deferredPrompt.userChoice.then(() => { deferredPrompt = null; });
+        });
+
+        if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js'); }
+    </script>
+</body>
+</html>
